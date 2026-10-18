@@ -900,6 +900,8 @@ section[id] {
         transform: rotate(-3deg) translateY(-8px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
     }
+
+
 @media (prefers-reduced-motion: reduce) {
     .collage-star {
         animation: none;
@@ -907,5 +909,53 @@ section[id] {
 
     .collage-small-photo {
         transition: none;
+    }
+}
+
+
+/* HANDY-LAYOUT REPARIEREN */
+
+@media (max-width: 800px) {
+
+    /* Hauptbereich: nur noch eine Spalte */
+    .portfolio-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .linke-spalte,
+    .foto-karte {
+        min-width: 0;
+    }
+
+    /* Über mich: Foto über dem Text */
+    .about-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    /* Profilfoto */
+    .about-card img {
+        width: 100%;
+        max-width: 320px;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Vorstellungstext */
+    .about-content p {
+        flex: none;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        overflow-wrap: break-word;
+    }
+
+    /* Großes Foto auf der Startseite */
+    .foto-karte img {
+        height: 420px;
     }
 }
